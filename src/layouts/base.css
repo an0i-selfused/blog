@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply underline break-all;
+  }
+  h1 {
+    @apply text-xl;
+  }
+}

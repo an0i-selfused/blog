@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseBody from "../layouts/BaseLayout.astro";
+const posts = await getCollection("blog");
+---
+
+<BaseBody title="???">
+  <section class="px-4 space-y-8">
+    {
+      posts
+        .toSorted((a, b) => a.data.timestamp - b.data.timestamp)
+        .map((post, index) => (
+          <article>
+            <span class="float-right select-none text-xl text-gray-700">
+              # {index + 1}
+            </span>
+            <h1>
+              <a href={`${import.meta.env.BASE_URL}post/${post.slug}`}>
+                {post.data.title}
+              </a>
+            </h1>
+            <div class="flex gap-8 text-gray-700">
+              <p>{new Date(post.data.timestamp).toLocaleDateString("zh")}</p>
+            </div>
+          </article>
+        ))
+    }
+  </section>
+</BaseBody>

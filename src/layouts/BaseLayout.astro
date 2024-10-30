@@ -1,0 +1,52 @@
+---
+import "./base.css";
+const { title } = Astro.props;
+---
+
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href={`${import.meta.env.BASE_URL}favicon.svg`}
+      type="image/x-icon"
+    />
+    <title>{title}</title>
+    <script
+      defer
+      is:inline
+      src="https://cloud.umami.is/script.js"
+      data-website-id="77b9f224-832f-4a8f-b010-4ee1d05ca2d0"></script>
+  </head>
+  <body class="m-auto max-w-screen-md">
+    <header class="h-14 flex items-center">
+      <div class="pl-4">
+        {
+          Astro.url.pathname === import.meta.env.BASE_URL ? (
+            "???"
+          ) : (
+            <a href={import.meta.env.BASE_URL}>???</a>
+          )
+        }
+      </div>
+    </header>
+
+    <main class="min-h-[calc(100vh-3.5rem-3.5rem)]">
+      <slot />
+    </main>
+
+    <footer class="h-14 flex justify-center items-center gap-4">
+      <a
+        class="text-sm text-gray-700 font-mono"
+        href="https://github.com"
+        title="an0i">me@gh</a
+      >
+      <a
+        class="text-sm text-gray-700 font-mono"
+        href="https://cloud.umami.is/share/2ewK72LbQfNLHSRQ/www.anqi.fun"
+        >umami</a
+      >
+    </footer>
+  </body>
+</html>
