@@ -1,6 +1,6 @@
 ---
-title: 'Wyse 3040 使用 Arch Linux 黑屏'
-author: 'qa'
+title: "Wyse 3040 使用 Arch Linux 黑屏"
+author: "qa"
 timestamp: 1729432488941
 ---
 
@@ -11,7 +11,7 @@ timestamp: 1729432488941
 具体操作:
 
 ```shell
-pacman -S xf86-video-intel
+sudo pacman -S xf86-video-intel
 ```
 
 ```shell
